@@ -27,12 +27,13 @@ int main(int argc, char** argv) {
         printf("Errore! Impossibile aprire il file!\n");
     else{
         printf("---Stampa---\n");
+        fread(&temp,sizeof(studente),1,puntafile);
         while(!feof(puntafile)){
-            fread(&temp,sizeof(studente),1,puntafile);
             printf("Nome: %s\n",temp.nome);
             printf("Cognome: %s\n",temp.cognome);
             printf("Età: %d\n",temp.eta);
             printf("Classe: %s\n\n",temp.classe);
+            fread(&temp,sizeof(studente),1,puntafile);
         }
         fclose(puntafile);
     }
